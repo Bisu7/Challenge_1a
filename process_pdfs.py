@@ -7,7 +7,7 @@ from PIL import Image
 from io import BytesIO
 from collections import defaultdict
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def extract_text_with_ocr(page):
     """Extract text from images in a PDF page using OCR"""
@@ -171,8 +171,8 @@ def process_pdf_to_outline(pdf_path, output_path):
         save_json(data, output_path)
         filename = os.path.basename(pdf_path)
         output_filename = os.path.basename(output_path)
-        print(f"✓ Processed {filename} -> {output_filename}")
-        print(f"  Title: {data['title']}")
+        print(f"Processed {filename} -> {output_filename}")
+        # print(f"  Title: {data['title']}")
         print(f"  Outline items: {len(data['outline'])}")
         return True
     except Exception as e:
