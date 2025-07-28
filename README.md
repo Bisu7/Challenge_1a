@@ -59,11 +59,6 @@ cp your-document.pdf sample_dataset/pdfs/
 ```bash
 docker build --platform linux/amd64 -t pdf-processor .
 ```
-# 🧠 Persona-Driven Document Intelligence System
-
-This system intelligently analyzes a collection of PDF documents, understands the context of a given persona and job-to-be-done, and extracts the most relevant sections in a structured JSON format — all while running fully offline.
-
----
 
 ## 🔧 How It Works
 
