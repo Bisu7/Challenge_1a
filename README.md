@@ -34,7 +34,7 @@ Challenge_1a/
 
 ### 1. Clone or Download the Project
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Bisu7/Challenge_1a
 cd Challenge_1a
 ```
 
@@ -51,7 +51,7 @@ cp your-document.pdf sample_dataset/pdfs/
 
 ### 3. Build the Docker Image
 ```bash
-docker build --platform linux/amd64 -t pdf-outline-extractor .
+docker build --platform linux/amd64 -t pdf-processor .
 ```
 
 ## 🚀 Usage
@@ -61,28 +61,20 @@ docker build --platform linux/amd64 -t pdf-outline-extractor .
 **Linux/Mac:**
 ```bash
 docker run --rm \
-  -v $(pwd)/sample_dataset/pdfs:/app/input:ro \
-  -v $(pwd)/sample_dataset/outputs:/app/output \
+  -v "$(pwd)/sample_dataset/pdfs:/app/input:ro" \
+  -v "$(pwd)/sample_dataset/outputs:/app/output" \
   --network none \
-  pdf-outline-extractor
+  pdf-processor
 ```
 
 **Windows PowerShell:**
 ```powershell
-docker run --rm `
-  -v "${PWD}/sample_dataset/pdfs:/app/input:ro" `
-  -v "${PWD}/sample_dataset/outputs:/app/output" `
-  --network none `
-  pdf-outline-extractor
+docker run --rm -v "${PWD}/sample_dataset/pdfs:/app/input:ro" -v "${PWD}/sample_dataset/outputs:/app/output" --network none pdf-processor
 ```
 
 **Windows Command Prompt:**
 ```cmd
-docker run --rm ^
-  -v "%cd%/sample_dataset/pdfs:/app/input:ro" ^
-  -v "%cd%/sample_dataset/outputs:/app/output" ^
-  --network none ^
-  pdf-outline-extractor
+docker run --rm -v "%cd%\sample_dataset\pdfs:/app/input:ro" -v "%cd%\sample_dataset\outputs:/app/output" --network none pdf-processor
 ```
 
 ### Local Development (Optional)
@@ -181,9 +173,9 @@ The tool generates JSON files with the following structure:
 ### Input Files
 ```
 sample_dataset/pdfs/
-├── research_paper.pdf
-├── technical_manual.pdf
-└── book_chapter.pdf
+├── file01.pdf
+├── file02.pdf
+└── file03.pdf
 ```
 
 ### Running the Container
