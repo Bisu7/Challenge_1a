@@ -1,50 +1,35 @@
 {
-  "title": "RFP: R",
+  "title": "RFP: R RFP: Reeeequest f quest f quest foooor Pr r Pr r Proposal oposal oposal RFP: R RFP: R quest f r Pr oposal",
   "outline": [
     {
-      "level": "H3",
-      "text": "Ontario’s Libraries",
-      "page": 1
-    },
-    {
-      "level": "H3",
-      "text": "Working Together",
-      "page": 1
+      "level": "H1",
+      "text": "RFP: R RFP: Reeeequest f quest f quest foooor Pr r Pr r Proposal oposal oposal RFP: R RFP: R quest f r Pr oposal",
+      "page": 1,
+      "source": "text"
     },
     {
       "level": "H1",
-      "text": "To Present a Proposal for Developing",
-      "page": 1
+      "text": "To Present a Proposal for Developing the Business Plan for the Ontario",
+      "page": 1,
+      "source": "text"
     },
     {
       "level": "H1",
-      "text": "the Business Plan for the Ontario",
-      "page": 1
-    },
-    {
-      "level": "H1",
-      "text": "Digital Library",
-      "page": 1
+      "text": "Digital Library March 21, 2003",
+      "page": 1,
+      "source": "text"
     },
     {
       "level": "H2",
-      "text": "March 21, 2003",
-      "page": 1
-    },
-    {
-      "level": "H2",
-      "text": "Ontario’s Digital Library",
-      "page": 2
-    },
-    {
-      "level": "H3",
-      "text": "A Critical Component for Implementing Ontario’s Road Map to",
-      "page": 2
+      "text": "Ontario’s Digital Library Ontario’s Libraries Working Together A Critical Component for Implementing Ontario’s Road Map to",
+      "page": 2,
+      "source": "text"
     },
     {
       "level": "H3",
       "text": "Prosperity Strategy",
-      "page": 2
+      "page": 2,
+      "source": "text"
     }
   ]
 }

@@ -1,1 +1,5 @@
 PyMuPDF==1.23.14
+pytesseract
+pdf2image
+pillow
+scikit-learn
