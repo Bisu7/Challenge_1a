@@ -1,22 +1,28 @@
 # Challenge 1a(PDF Processor)
 
-A robust Docker-based solution for extracting hierarchical outline structures from PDF documents using PyMuPDF. This tool automatically analyzes font sizes and formats to identify document titles and multi-level headings, outputting structured JSON files suitable for document navigation and content analysis.
+A Docker-based solution that extracts structured outlines from PDF documents, including:
+- Regular PDF text through PyMuPDF
+- Text embedded in images via Tesseract OCR
+- Automatic hierarchy detection using font analysis
+- Batch processing with clean JSON output
 
-## 🚀 Features
+## 🌟 Key Features
+| Feature | Description |
+|---------|-------------|
+| **Dual Text Extraction** | Combines native PDF text and OCR from images |
+| **Smart Hierarchy Detection** | Identifies titles/H1-H3 headings by font analysis |
+| **Multi-Language OCR** | Supports 100+ languages via Tesseract |
+| **Batch Processing** | Processes entire directories of PDFs |
+| **Docker Container** | Isolated, reproducible environment |
+| **Structured JSON Output** | Consistent format for easy integration |
 
-- **Automatic Hierarchy Detection**: Intelligently identifies document structure based on font size analysis
-- **Multi-level Headings**: Extracts titles, H1, H2, and H3 level headings with page references
-- **Batch Processing**: Processes multiple PDF files in a single run
-- **Docker Support**: Fully containerized solution with consistent cross-platform execution
-- **JSON Output**: Clean, structured output format for easy integration
-- **Error Resilience**: Continues processing even if individual files encounter issues
-
-## 📋 Requirements
-
-- **Docker**: Docker Desktop (Windows/Mac) or Docker Engine (Linux)
-- **Input**: PDF files to be processed
-- **System**: Any system supporting Docker containers
-
+## 🛠️ System Requirements
+- **Docker** (Desktop or Engine)
+- **Minimum Resources**:
+  - 2 CPU cores
+  - 4GB RAM (8GB recommended for OCR)
+  - 1GB disk space
+    
 ## 🏗️ Project Structure
 
 ```
@@ -53,6 +59,46 @@ cp your-document.pdf sample_dataset/pdfs/
 ```bash
 docker build --platform linux/amd64 -t pdf-processor .
 ```
+# 🧠 Persona-Driven Document Intelligence System
+
+This system intelligently analyzes a collection of PDF documents, understands the context of a given persona and job-to-be-done, and extracts the most relevant sections in a structured JSON format — all while running fully offline.
+
+---
+
+## 🔧 How It Works
+
+### ⚙️ Processing Pipeline
+
+#### 🗂️ Text Extraction
+- Extract **native text** using `PyMuPDF` (for text-based PDFs)
+- Use **Tesseract OCR** for scanned/image-based PDFs
+- Preserve **font metadata** (size, font name, boldness)
+
+#### 🧱 Structure Analysis
+- Detect headings using **font size ranking**:
+  - Largest → `Title`, next → `H1`, `H2`, `H3`, etc.
+- Group related text using **spatial layout**
+- Track and record **page numbers** for each section
+
+#### 📤 Output Generation
+- Export results in a **validated JSON format**
+- Encode output using **UTF-8**
+- Implement robust **error logging** for traceability
+
+---
+
+## 🧩 OCR Configuration Tips
+
+### 🌐 Language Packs (For Multilingual Support)
+
+You can install additional Tesseract language packs in your Docker container.
+
+#### 🐳 Dockerfile Example
+```dockerfile
+RUN apt-get update && apt-get install -y \
+    tesseract-ocr-ara \        # Arabic
+    tesseract-ocr-chi-sim      # Simplified Chinese
+
 
 ## 🚀 Usage
 
