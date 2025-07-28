@@ -60,26 +60,6 @@ cp your-document.pdf sample_dataset/pdfs/
 docker build --platform linux/amd64 -t pdf-processor .
 ```
 
-## 🔧 How It Works
-
-### ⚙️ Processing Pipeline
-
-#### 🗂️ Text Extraction
-- Extract **native text** using `PyMuPDF` (for text-based PDFs)
-- Use **Tesseract OCR** for scanned/image-based PDFs
-- Preserve **font metadata** (size, font name, boldness)
-
-#### 🧱 Structure Analysis
-- Detect headings using **font size ranking**:
-  - Largest → `Title`, next → `H1`, `H2`, `H3`, etc.
-- Group related text using **spatial layout**
-- Track and record **page numbers** for each section
-
-#### 📤 Output Generation
-- Export results in a **validated JSON format**
-- Encode output using **UTF-8**
-- Implement robust **error logging** for traceability
-
 ---
 
 
@@ -152,33 +132,25 @@ The tool generates JSON files with the following structure:
   - **text**: The actual heading text
   - **page**: Page number where the heading appears
 
-## 🔍 How It Works
+## 🔧 How It Works
 
-### 1. Text Extraction
-- Opens PDF files using PyMuPDF (fitz)
-- Extracts text with font metadata from every page
-- Preserves font size, style, and positioning information
+### ⚙️ Processing Pipeline
 
-### 2. Font Analysis
-- Analyzes all unique font sizes in the document
-- Ranks sizes from largest to smallest
-- Assigns hierarchy levels based on size ranking:
-  - **Largest**: Document Title
-  - **Second**: H1 headings
-  - **Third**: H2 headings
-  - **Fourth**: H3 headings
-  - **Remaining**: Body text
+#### 🗂️ Text Extraction
+- Extract **native text** using `PyMuPDF` (for text-based PDFs)
+- Use **Tesseract OCR** for scanned/image-based PDFs
+- Preserve **font metadata** (size, font name, boldness)
 
-### 3. Structure Extraction
-- Identifies title from the largest font size (preferably on early pages)
-- Extracts headings at H1, H2, and H3 levels
-- Records page numbers for each heading
-- Removes duplicate entries
+#### 🧱 Structure Analysis
+- Detect headings using **font size ranking**:
+  - Largest → `Title`, next → `H1`, `H2`, `H3`, etc.
+- Group related text using **spatial layout**
+- Track and record **page numbers** for each section
 
-### 4. JSON Generation
-- Formats extracted data into structured JSON
-- Saves output files with `_outline.json` suffix
-- Ensures UTF-8 encoding for international character support
+#### 📤 Output Generation
+- Export results in a **validated JSON format**
+- Encode output using **UTF-8**
+- Implement robust **error logging** for traceability
 
 ## 🛠️ Technical Details
 
