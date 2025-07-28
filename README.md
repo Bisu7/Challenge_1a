@@ -82,17 +82,7 @@ docker build --platform linux/amd64 -t pdf-processor .
 
 ---
 
-## 🧩 OCR Configuration Tips
 
-### 🌐 Language Packs (For Multilingual Support)
-
-You can install additional Tesseract language packs in your Docker container.
-
-#### 🐳 Dockerfile Example
-```dockerfile
-RUN apt-get update && apt-get install -y \
-    tesseract-ocr-ara \        # Arabic
-    tesseract-ocr-chi-sim      # Simplified Chinese
 
 
 ## 🚀 Usage
