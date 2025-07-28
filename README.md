@@ -188,19 +188,7 @@ sample_dataset/pdfs/
 
 ### Running the Container
 ```bash
-docker run --rm \
-  -v $(pwd)/sample_dataset/pdfs:/app/input:ro \
-  -v $(pwd)/sample_dataset/outputs:/app/output \
-  --network none \
-  pdf-outline-extractor
-```
-
-### Generated Output
-```
-sample_dataset/outputs/
-├── research_paper_outline.json
-├── technical_manual_outline.json
-└── book_chapter_outline.json
+docker run --rm -v "${PWD}/sample_dataset/pdfs:/app/input:ro" -v "${PWD}/sample_dataset/outputs:/app/output" --network none pdf-processor
 ```
 
 ## 🔧 Troubleshooting
@@ -223,28 +211,3 @@ sample_dataset/outputs/
 - Ensure output directory exists and is writable
 - On Linux, check directory ownership
 
-### Debug Mode
-For detailed processing information, modify the script to include debug output or check container logs.
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test with sample PDF files
-5. Submit a pull request
-
-## 📞 Support
-
-For issues and questions:
-1. Check the troubleshooting section above
-2. Review Docker and PyMuPDF documentation
-3. Submit issues through the project repository
-
----
-
-**Built with ❤️ using Python, PyMuPDF, and Docker**
