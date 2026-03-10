@@ -207,7 +207,6 @@ def process_all_pdfs():
         if process_pdf_to_outline(pdf_path, output_filename):
             success_count += 1
         print()
-    
     print("=" * 50)
     print(f"Processing complete! Success: {success_count}/{len(pdf_files)}")
 
